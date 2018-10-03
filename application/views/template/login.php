@@ -29,17 +29,25 @@
                 <!-- <img src="../../images/logo.svg"> -->
                 <b><span class="text-primary display2">SIKIPER</span></b>
               </div>
+              <?php if ($this->session->flashdata('msg')): ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <?= $this->session->flashdata('msg') ?>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              <?php endif ?>
               <h4>Selamat Datang Admin!</h4>
               <h6 class="font-weight-light">Silahkan masuk.</h6>
-              <form class="pt-3" autocomplete="off">
+              <form class="pt-3" autocomplete="off" method="POST">
                 <div class="form-group">
-                  <input type="email" autocomplete="off" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
+                  <input type="text" name="username" autocomplete="off" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                  <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" href="<?= base_url(''); ?>">Masuk</a>
+                  <button type="submit" name="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="submit">Masuk</button>
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <!-- <div class="form-check">
