@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
+  <!-- <link rel="stylesheet" href="<?= base_url('assets'); ?>/node_modules/jqvmap/dist/jqvmap.min.css" /> -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/css/style.css">
@@ -236,7 +237,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url(''); ?>">
+            <a class="nav-link" href="<?= base_url('anggota'); ?>">
               <span class="menu-title">Anggota</span>
               <i class="mdi mdi-account-card-details menu-icon"></i>
             </a>
