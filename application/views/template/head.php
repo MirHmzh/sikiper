@@ -26,7 +26,7 @@
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo" href="<?= base_url('assets'); ?>/index.html">
           <!-- <img src="<?= base_url('assets'); ?>/images/logo.svg" alt="logo"/> -->
-          <span class="display3 text-primary">SIKIPER</span>
+          <b><span class="display3 text-primary brand">SIKIPER</span></b>
         </a>
         <a class="navbar-brand brand-logo-mini" href="<?= base_url('assets'); ?>/index.html"><img src="<?= base_url('assets'); ?>/images/logo-mini.svg" alt="logo"/></a>
       </div>
@@ -217,9 +217,9 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url('assets'); ?>/pages/ui-features/buttons.html">Wajib</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url('assets'); ?>/pages/ui-features/buttons.html">Pokok</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url('assets'); ?>/pages/ui-features/buttons.html">Sukarela</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= base_url(''); ?>">Wajib</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= base_url(''); ?>">Pokok</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= base_url(''); ?>">Sukarela</a></li>
               </ul>
             </div>
           </li>
@@ -231,8 +231,8 @@
             </a>
             <div class="collapse" id="dd-pinjaman">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url('assets'); ?>/pages/ui-features/buttons.html">Pinjaman</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url('assets'); ?>/pages/ui-features/buttons.html">Angsuran</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= base_url(''); ?>">Pinjaman</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= base_url(''); ?>">Angsuran</a></li>
               </ul>
             </div>
           </li>

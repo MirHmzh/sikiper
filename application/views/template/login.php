@@ -27,7 +27,7 @@
             <div class="auth-form-light text-left p-5">
               <div class="brand-logo">
                 <!-- <img src="../../images/logo.svg"> -->
-                <b><span class="text-primary display2">SIKIPER</span></b>
+                <b><h1 class="text-primary display2">SIKIPER</h1></b>
               </div>
               <?php if ($this->session->flashdata('msg')): ?>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">

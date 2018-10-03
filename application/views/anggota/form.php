@@ -17,22 +17,24 @@
       <form class="forms-sample" method="POST">
         <div class="form-group">
           <label for="nik">NIK</label>
-          <input type="number" name="nik" class="form-control" id="nik" placeholder="NIK Anggota" value="<?= $data->nik_anggota ? $data->nik_anggota : ''?>">
+          <input type="number" name="nik" class="form-control" id="nik" placeholder="NIK Anggota" value="<?= isset($data->nik_anggota) ? $data->nik_anggota : ''?>">
         </div>
         <div class="form-group">
           <label for="nama">Nama</label>
-          <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Anggota" value="<?= $data->nama_anggota ? $data->nama_anggota : ''?>">
+          <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Anggota" value="<?= isset($data->nama_anggota) ? $data->nama_anggota : ''?>">
         </div>
-        <?php if ($data->id_anggota): ?>
+        <?php if (isset($data->id_anggota)): ?>
           <div class="form-group">
             <label for="nama">Tanggal Bergabung</label>
             <input type="text" name="tgl_bergabung" disabled="disabled" class="form-control" id="nama" placeholder="Nama Anggota" value="<?= $data->tgl_bergabung ? $data->tgl_bergabung : ''?>">
           </div>
         <?php endif ?>
-        <button type="submit" name="submit" class="btn btn-gradient-primary mr-2" value="Submit">Submit</button>
-        <a href="<?= base_url('anggota/del/'.$data->id_anggota) ?>" title="">
-          <button type="button" class="btn btn-gradient-danger btn-fw">Hapus</button>
-        </a>
+        <button type="submit" name="submit" class="btn btn-gradient-primary mr-2" value="Submit">Simpan</button>
+        <?php if (isset($data->id_anggota)): ?>
+          <a href="<?= base_url('anggota/del/'.$data->id_anggota) ?>" title="">
+            <button type="button" class="btn btn-gradient-danger btn-fw">Hapus</button>
+          </a>
+        <?php endif ?>
         <a href="<?= base_url('anggota'); ?>" title="">
           <button type="button" class="btn btn-light float-right">Batal</button>
         </a>
