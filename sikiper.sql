@@ -11,7 +11,7 @@
  Target Server Version : 100108
  File Encoding         : 65001
 
- Date: 03/10/2018 19:05:19
+ Date: 24/10/2018 22:44:13
 */
 
 SET NAMES utf8mb4;
@@ -27,12 +27,13 @@ CREATE TABLE `anggota`  (
   `nama_anggota` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `tanggal_bergabung` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
   PRIMARY KEY (`id_anggota`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of anggota
 -- ----------------------------
 INSERT INTO `anggota` VALUES (3, '123123', 'Anggota', '2018-10-03 12:47:49.092881');
+INSERT INTO `anggota` VALUES (4, '321321321', 'Anggota', '2018-10-06 20:26:29.141233');
 
 -- ----------------------------
 -- Table structure for angsuran
@@ -44,7 +45,9 @@ CREATE TABLE `angsuran`  (
   `nominal_angsuran` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `tanggal_pembayaran` timestamp(6) NULL DEFAULT NULL,
   `angsuran_ke` int(3) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_angsuran`) USING BTREE
+  PRIMARY KEY (`id_angsuran`) USING BTREE,
+  INDEX `pinjaman`(`id_pinjaman`) USING BTREE,
+  CONSTRAINT `pinjaman` FOREIGN KEY (`id_pinjaman`) REFERENCES `pinjaman` (`id_pinjaman`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -59,7 +62,9 @@ CREATE TABLE `pinjaman`  (
   `tenor_pinjaman` int(5) NULL DEFAULT NULL,
   `jatuh_tempo_pembayaran` date NULL DEFAULT NULL,
   `status_pinjaman` int(1) NULL DEFAULT NULL COMMENT '0 : Belum Lunas; 1 : Lunas',
-  PRIMARY KEY (`id_pinjaman`) USING BTREE
+  PRIMARY KEY (`id_pinjaman`) USING BTREE,
+  INDEX `angota_pinjaman`(`id_anggota`) USING BTREE,
+  CONSTRAINT `angota_pinjaman` FOREIGN KEY (`id_anggota`) REFERENCES `anggota` (`id_anggota`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -71,7 +76,9 @@ CREATE TABLE `simpanan_pokok`  (
   `id_anggota` int(255) NOT NULL,
   `nominal_pokok` varchar(13) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `tanggal_disetorkan` timestamp(6) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_simp_pokok`) USING BTREE
+  PRIMARY KEY (`id_simp_pokok`) USING BTREE,
+  INDEX `anggota_simpanan_pokok`(`id_anggota`) USING BTREE,
+  CONSTRAINT `anggota_simpanan_pokok` FOREIGN KEY (`id_anggota`) REFERENCES `anggota` (`id_anggota`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -83,7 +90,9 @@ CREATE TABLE `simpanan_sukarela`  (
   `id_anggota` int(255) NOT NULL COMMENT ' ',
   `nominal_simp_sukarela` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `tanggal_disetorkan` timestamp(6) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_simp_sukarela`) USING BTREE
+  PRIMARY KEY (`id_simp_sukarela`) USING BTREE,
+  INDEX `anggota_simpanan_sukarela`(`id_anggota`) USING BTREE,
+  CONSTRAINT `anggota_simpanan_sukarela` FOREIGN KEY (`id_anggota`) REFERENCES `anggota` (`id_anggota`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -95,7 +104,15 @@ CREATE TABLE `simpanan_wajib`  (
   `id_anggota` int(255) NOT NULL COMMENT ' ',
   `nominal_simp_wajib` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `tanggal_disetorkan` time(6) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_simp_wajib`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+  PRIMARY KEY (`id_simp_wajib`) USING BTREE,
+  INDEX `anggota_simpanan_wajib`(`id_anggota`) USING BTREE,
+  CONSTRAINT `anggota_simpanan_wajib` FOREIGN KEY (`id_anggota`) REFERENCES `anggota` (`id_anggota`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of simpanan_wajib
+-- ----------------------------
+INSERT INTO `simpanan_wajib` VALUES (1, 3, '80000', NULL);
+INSERT INTO `simpanan_wajib` VALUES (2, 3, '90000', NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;

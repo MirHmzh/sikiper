@@ -27,6 +27,7 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <!-- <?php print_r($data); ?> -->
                       <?php foreach ($data as $val): ?>
                         <tr>
                           <td><?= $val->id_anggota ?></td>

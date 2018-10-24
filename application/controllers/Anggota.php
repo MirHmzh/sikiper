@@ -13,6 +13,7 @@ class Anggota extends Authenticated_Controller {
 	public function index()
 	{
 		$data['data'] = $this->AnggotaModel->get();
+		// $data['data'] = [];
 		$this->page->view('anggota/index', $data);
 	}
 

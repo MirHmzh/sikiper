@@ -1,0 +1,1 @@
+<?php echo 'Rp. '.$data[0]->nominal_simp_wajib; ?>
