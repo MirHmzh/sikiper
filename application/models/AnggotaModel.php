@@ -25,7 +25,7 @@ class AnggotaModel extends CI_Model {
 
 	function update($id, $data)
 	{
-		$data = $this->db->update('anggota', $data, $id);
+		$data = $this->db->update('anggota', $data, ['id_anggota' => $id]);
 		return $data;
 	}
 

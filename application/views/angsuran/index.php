@@ -9,32 +9,29 @@
                       </button>
                     </div>
                   <?php endif ?>
-                  <h4 class="card-title">Simpanan Wajib</h4>
-                  <!-- <p class="card-description">
-                    Add class <code>.table-hover</code>
-                  </p> -->
-                  <a href="<?= base_url('simpananwajib/form') ?>" title="">
+                  <h4 class="card-title">Anggota</h4>
+                  <!-- <a href="<?= base_url('angsuran/form') ?>" title="">
                     <button type="button" class="btn btn-gradient-dark btn-fw">Tambah</button>
-                  </a>
+                  </a> -->
                   <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th>ID Simpanan Wajib</th>
-                        <th>Nama Anggota</th>
-                        <th>Nominal</th>
-                        <th>Tanggal Disetorkan</th>
+                        <th>ID Pinjaman</th>
+                        <th>Nominal Pinjaman</th>
+                        <th>Nominal Terangsur </th>
+                        <th>Angsuran/Tenor</th>
                         <th></th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php foreach ($data as $val): ?>
                         <tr>
-                          <td><?= $val->id_simp_wajib ?></td>
-                          <td><?= $val->nama_anggota ?></td>
-                          <td>Rp. <?= $val->nominal_simp_wajib ?></td>
-                          <td><?= $val->tgl_disetorkan ?></td>
+                          <td><?= $val->id_pinjaman ?></td>
+                          <td><?= $val->nominal_pinjaman ?></td>
+                          <td><?= $val->jumlah_terangsur ?></td>
+                          <td><?= $val->jumlah_diangsur?>/<?= $val->tenor_pinjaman ?></td>
                           <td>
-                            <a href="<?= base_url('simpananwajib/form/'.$val->id_simp_wajib) ?>" title="">
+                            <a href="<?= base_url('angsuran/form/'.$val->id_pinjaman) ?>" title="">
                               <button type="button" class="btn btn-outline-warning btn-fw">Sunting</button>
                             </a>
                           </td>

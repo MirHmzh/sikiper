@@ -36,7 +36,6 @@ class Anggota extends Authenticated_Controller {
 			}
 			else{
 				$this->session->set_flashdata('msg', 'Anggota gagal ditambah');
-				redirect('','refresh');
 			}
 		}
 
