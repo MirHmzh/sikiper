@@ -9,7 +9,7 @@
                       </button>
                     </div>
                   <?php endif ?>
-                  <h4 class="card-title">Anggota</h4>
+                  <h4 class="card-title">Angsuran</h4>
                   <!-- <a href="<?= base_url('angsuran/form') ?>" title="">
                     <button type="button" class="btn btn-gradient-dark btn-fw">Tambah</button>
                   </a> -->

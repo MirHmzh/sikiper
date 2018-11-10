@@ -217,9 +217,9 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url(''); ?>">Wajib</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url(''); ?>">Pokok</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url(''); ?>">Sukarela</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= base_url('simpananwajib'); ?>">Wajib</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= base_url('simpananpokok'); ?>">Pokok</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= base_url('simpanansukarela'); ?>">Sukarela</a></li>
               </ul>
             </div>
           </li>
@@ -231,8 +231,8 @@
             </a>
             <div class="collapse" id="dd-pinjaman">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url(''); ?>">Pinjaman</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url(''); ?>">Angsuran</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= base_url('pinjaman'); ?>">Pinjaman</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?= base_url('angsuran'); ?>">Angsuran</a></li>
               </ul>
             </div>
           </li>
