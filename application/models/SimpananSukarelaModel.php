@@ -7,6 +7,9 @@ class SimpananSukarelaModel extends CI_Model {
 	{
 		$this->db->select("simpanan_sukarela.*, anggota.nama_anggota, DATE_FORMAT(tanggal_disetorkan, '%d-%m-%Y') AS tgl_disetorkan");
 		$this->db->join('anggota', 'simpanan_sukarela.id_anggota = anggota.id_anggota', 'left');
+		if ($this->session->userdata('level') != 1) {
+			$this->db->where('simpanan_sukarela.id_anggota', $this->session->userdata('id'));
+		}
 		$data = $this->db->get('simpanan_sukarela');
 		return $data->result();
 	}
@@ -35,6 +38,12 @@ class SimpananSukarelaModel extends CI_Model {
 	{
 		$data = $this->db->delete('simpanan_sukarela', ['id_simp_sukarela' => $id]);
 		return $data;
+	}
+
+	function acc($id)
+	{
+		$trans = $this->db->update('simpanan_sukarela', ['status_sukarela' => 1]);
+		return $trans;
 	}
 
 }

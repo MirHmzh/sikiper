@@ -54,7 +54,7 @@
                 <span class="availability-status online"></span>
               </div>
               <div class="nav-profile-text">
-                <p class="mb-1 text-black">Mukidi</p>
+                <p class="mb-1 text-black"><?= $this->session->userdata('nama_anggota') ?></p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -197,8 +197,8 @@
                 <span class="login-status online"></span> <!--change to offline or busy as needed-->
               </div>
               <div class="nav-profile-text d-flex flex-column">
-                <span class="font-weight-bold mb-2">Mukidi</span>
-                <span class="text-secondary text-small">Admin SIKIPER</span>
+                <span class="font-weight-bold mb-2"><?= $this->session->userdata('nama_anggota') ?></span>
+                <span class="text-secondary text-small"><?= $this->session->userdata('level') == 1 ? 'Admin' : 'Anggota' ?> SIKIPER</span>
               </div>
               <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
             </a>
@@ -236,12 +236,14 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('anggota'); ?>">
-              <span class="menu-title">Anggota</span>
-              <i class="mdi mdi-account-card-details menu-icon"></i>
-            </a>
-          </li>
+          <?php if ($this->session->userdata('level') == 1): ?>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= base_url('anggota'); ?>">
+                <span class="menu-title">Anggota</span>
+                <i class="mdi mdi-account-card-details menu-icon"></i>
+              </a>
+            </li>
+          <?php endif ?>
           <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-title">UI Elements</span>

@@ -20,6 +20,7 @@
                         <th>Nominal Pinjaman</th>
                         <th>Nominal Terangsur </th>
                         <th>Angsuran/Tenor</th>
+                        <th>Status Angsuran</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -30,6 +31,13 @@
                           <td><?= $val->nominal_pinjaman ?></td>
                           <td><?= $val->jumlah_terangsur ?></td>
                           <td><?= $val->jumlah_diangsur?>/<?= $val->tenor_pinjaman ?></td>
+                          <td>
+                            <?php if ($val->status_angsuran == 1): ?>
+                              <i class="mdi mdi-checkbox-marked-circle green"></i>
+                            <?php else: ?>
+                              <i class="mdi mdi-timer-sand"></i>
+                            <?php endif ?>
+                          </td>
                           <td>
                             <a href="<?= base_url('angsuran/form/'.$val->id_pinjaman) ?>" title="">
                               <button type="button" class="btn btn-outline-warning btn-fw">Sunting</button>

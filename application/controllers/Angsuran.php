@@ -38,6 +38,18 @@ class Angsuran extends CI_Controller {
 				redirect('angsuran/form','refresh');
 			}
 		}
+
+		if ($this->input->post('confirm')) {
+			$trans = $this->AngsuranModel->acc($id);
+			if ($trans == TRUE) {
+				$this->session->set_flashdata('msg', 'Angsuran disetujui');
+				redirect('angsuran','refresh');
+			}else{
+				$this->session->set_flashdata('msg', 'Angsuran gagal disetujui');
+				redirect('angsuran/form','refresh');
+			}
+		}
+
 		if ($id == 0) {
 			$data['data'] = [];
 		}else{

@@ -41,6 +41,17 @@ class Pinjaman extends CI_Controller {
 			}
 		}
 
+		if ($this->input->post('confirm')) {
+			$trans = $this->PinjamanModel->acc($id);
+			if ($trans == TRUE) {
+				$this->session->set_flashdata('msg', 'Pinjaman disetujui');
+				redirect('pinjaman','refresh');
+			}else{
+				$this->session->set_flashdata('msg', 'Pinjaman gagal disetujui');
+				redirect('pinjaman/form','refresh');
+			}
+		}
+
 		if ($id == 0) {
 			$data['data'] = [];
 		}else{

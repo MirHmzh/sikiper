@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AnggotaModel extends CI_Model {
 
+	function get_login($username, $password)
+	{
+		return $this->db->get_where('anggota', ['nik_anggota' => $username, 'password' => $password]);
+	}
+
 	function get()
 	{
 		$this->db->select("*, DATE_FORMAT(tanggal_bergabung, '%d-%m-%Y %H:%i') AS tgl_bergabung");

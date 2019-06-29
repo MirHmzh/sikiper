@@ -7,6 +7,9 @@ class SimpananWajibModel extends CI_Model {
 	{
 		$this->db->select("simpanan_wajib.*, anggota.nama_anggota, DATE_FORMAT(tanggal_disetorkan, '%d-%m-%Y') AS tgl_disetorkan");
 		$this->db->join('anggota', 'simpanan_wajib.id_anggota = anggota.id_anggota', 'left');
+		if ($this->session->userdata('level') != 1) {
+			$this->db->where('simpanan_wajib.id_anggota', $this->session->userdata('id'));
+		}
 		$data = $this->db->get('simpanan_wajib');
 		return $data->result();
 	}
@@ -35,6 +38,12 @@ class SimpananWajibModel extends CI_Model {
 	{
 		$data = $this->db->delete('simpanan_wajib', ['id_simp_wajib' => $id]);
 		return $data;
+	}
+
+	function acc($id)
+	{
+		$trans = $this->db->update('simpanan_wajib', ['status_wajib' => 1]);
+		return $trans;
 	}
 
 

@@ -38,6 +38,17 @@ class SimpananWajib extends Authenticated_Controller {
 			}
 		}
 
+		if ($this->input->post('confirm')) {
+			$trans = $this->SimpananWajibModel->acc($id);
+			if ($trans == TRUE) {
+				$this->session->set_flashdata('msg', 'Simpanan Wajib disetujui');
+				redirect('simpanan_wajib','refresh');
+			}else{
+				$this->session->set_flashdata('msg', 'Simpanan Wajib gagal disetujui');
+				redirect('simpanan_wajib/form','refresh');
+			}
+		}
+
 		if ($id == 0) {
 			$data['data'] = [];
 		}else{

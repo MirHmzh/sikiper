@@ -39,6 +39,17 @@ class SimpananPokok extends CI_Controller {
 			}
 		}
 
+		if ($this->input->post('confirm')) {
+			$trans = $this->SimpananPokokModel->acc($id);
+			if ($trans == TRUE) {
+				$this->session->set_flashdata('msg', 'Simpanan Pokok disetujui');
+				redirect('simpanan_pokok','refresh');
+			}else{
+				$this->session->set_flashdata('msg', 'Simpanan Pokok gagal disetujui');
+				redirect('simpanan_pokok/form','refresh');
+			}
+		}
+
 		if ($id == 0) {
 			$data['data'] = [];
 		}else{

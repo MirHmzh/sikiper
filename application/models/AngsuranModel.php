@@ -7,6 +7,9 @@ class AngsuranModel extends CI_Model {
 	{
 		$this->db->select('pinjaman.*, SUM(angsuran.nominal_angsuran) AS jumlah_terangsur, COUNT(angsuran.angsuran_ke) AS jumlah_diangsur');
 		$this->db->join('angsuran', 'angsuran.id_pinjaman = pinjaman.id_pinjaman', 'left');
+		if ($this->session->userdata('level') != 1) {
+			$this->db->where('pinjaman.id_anggota', $this->session->userdata('id'));
+		}
 		$this->db->group_by('pinjaman.id_pinjaman');
 		$data = $this->db->get('pinjaman');
 		return $data->result();
@@ -36,6 +39,12 @@ class AngsuranModel extends CI_Model {
 	function del($id)
 	{
 		$trans = $this->db->delete('angsuran', ['id_pinjaman' => $id]);
+		return $trans;
+	}
+
+	function acc($id)
+	{
+		$trans = $this->db->update('angsuran', ['status_angsuran' => 1]);
 		return $trans;
 	}
 

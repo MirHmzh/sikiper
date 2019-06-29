@@ -38,6 +38,17 @@ class SimpananSukarela extends CI_Controller {
 			}
 		}
 
+		if ($this->input->post('confirm')) {
+			$trans = $this->SimpananSukarelaModel->acc($id);
+			if ($trans == TRUE) {
+				$this->session->set_flashdata('msg', 'Simpanan Sukarela disetujui');
+				redirect('simpanan_sukarela','refresh');
+			}else{
+				$this->session->set_flashdata('msg', 'Simpanan Sukarela gagal disetujui');
+				redirect('simpanan_sukarela/form','refresh');
+			}
+		}
+
 		if ($id == 0) {
 			$data['data'] = [];
 		}else{

@@ -37,11 +37,11 @@
                   </button>
                 </div>
               <?php endif ?>
-              <h4>Selamat Datang Admin!</h4>
+              <h4>Selamat Datang!</h4>
               <h6 class="font-weight-light">Silahkan masuk.</h6>
               <form class="pt-3" autocomplete="off" method="POST">
                 <div class="form-group">
-                  <input type="text" name="username" autocomplete="off" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
+                  <input type="text" name="username" autocomplete="off" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="NIK">
                 </div>
                 <div class="form-group">
                   <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">

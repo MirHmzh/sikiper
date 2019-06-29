@@ -22,6 +22,7 @@
                         <th>Tanggal Peminjaman</th>
                         <th>Tenor Pinjaman</th>
                         <th>Jatuh Tempo</th>
+                        <th>Status</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -34,6 +35,15 @@
                           <td><?= $val->tanggal_pengajuan ?></td>
                           <td><?= $val->tenor_pinjaman ?></td>
                           <td><?= $val->jatuh_tempo_pembayaran ?></td>
+                          <td>
+                            <?php if ($val->status_pinjaman == 1): ?>
+                              Belum Lunas
+                            <?php elseif ($val->status_wajib == 2): ?>
+                              <i class="mdi mdi-checkbox-marked-circle green"></i>
+                            <?php else: ?>
+                              <i class="mdi mdi-timer-sand"></i>
+                            <?php endif ?>
+                          </td>
                           <td>
                             <a href="<?= base_url('pinjaman/form/'.$val->id_pinjaman) ?>" title="">
                               <button type="button" class="btn btn-outline-warning btn-fw">Sunting</button>

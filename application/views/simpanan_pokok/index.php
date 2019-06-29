@@ -23,6 +23,7 @@
                         <th>Nama Anggota</th>
                         <th>Nominal</th>
                         <th>Tanggal Disetorkan</th>
+                        <th>Status</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -33,6 +34,13 @@
                           <td><?= $val->nama_anggota ?></td>
                           <td>Rp. <?= $val->nominal_pokok ?></td>
                           <td><?= $val->tgl_disetorkan ?></td>
+                          <td>
+                            <?php if ($val->status_pokok == 1): ?>
+                              <i class="mdi mdi-checkbox-marked-circle green"></i>
+                            <?php else: ?>
+                              <i class="mdi mdi-timer-sand"></i>
+                            <?php endif ?>
+                          </td>
                           <td>
                             <a href="<?= base_url('simpananpokok/form/'.$val->id_simp_pokok) ?>" title="">
                               <button type="button" class="btn btn-outline-warning btn-fw">Sunting</button>

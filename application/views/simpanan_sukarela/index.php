@@ -23,6 +23,7 @@
                         <th>Nama Anggota</th>
                         <th>Nominal</th>
                         <th>Tanggal Disetorkan</th>
+                        <th>Status</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -33,6 +34,13 @@
                           <td><?= $val->nama_anggota ?></td>
                           <td>Rp. <?= $val->nominal_simp_sukarela ?></td>
                           <td><?= $val->tgl_disetorkan ?></td>
+                          <td>
+                            <?php if ($val->status_sukarela == 1): ?>
+                              <i class="mdi mdi-checkbox-marked-circle green"></i>
+                            <?php else: ?>
+                              <i class="mdi mdi-timer-sand"></i>
+                            <?php endif ?>
+                          </td>
                           <td>
                             <a href="<?= base_url('simpanansukarela/form/'.$val->id_simp_sukarela) ?>" title="">
                               <button type="button" class="btn btn-outline-warning btn-fw">Sunting</button>
